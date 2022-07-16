@@ -13,8 +13,8 @@ h(){
     """
 }
 
-export GOPATH=/home/shared/Go
-source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash
+export GOPATH=$HOME/go
+#source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash
 export RANGER_LOAD_DEFAULT_RC=false
 export USER_AGENT='Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0'
 #export USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0'
@@ -59,7 +59,7 @@ source /tmp/GLOBAL_ENV 2> /dev/null
 alias hn="$HOME/bash/alias/hackernews.sh"
 alias hold=$HOME/bash/hold.sh
 alias ifconfig="echo 'Command deprecated. Use ip address, ip link, ip neigbor or ip route'"
-alias j="$HOME/bash/jgnupg.sh"
+alias j="$HOME/bash/alias/jgnupg.sh"
 alias jtc="$HOME/bash/bin/jtc-linux-64.latest"
 alias keygen="$HOME/bash/keygen.sh --help && cd $HOME/Bash" #cd $HOME/Bash;./keygen.sh;cd -"
 alias lf=$HOME/bash/alias/lf.sh
@@ -107,7 +107,9 @@ alias torssh=$HOME/bash/alias/torssh.sh
 alias direct="$HOME/bash/alias/torssh.sh direct"
 alias tq='touch /tmp/quit'
 alias update=$HOME/bash/alias/update.sh
-alias wifi="sudo wifi-menu"
+alias wifi="iwctl station wlan0 connect L7"
+alias v=vim
+alias nv=nvim
 alias vimprev="VIMENV=prev vim $@"
 alias ya='yt-dlp -f bestaudio[ext=webm]'
 alias yf='yt-dlp -F'
@@ -226,5 +228,4 @@ if [[ $PATH != */go/bin* ]]; then
     export PATH="$PATH:$HOME/bin"
     export PATH="$PATH:$HOME/go/bin"
     export PATH="$PATH:$HOME/.local/bin" #this is local user pip install
-    keymap
 fi

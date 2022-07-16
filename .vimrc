@@ -176,8 +176,10 @@ hi NonText ctermbg=none
 
 " auto reload vimrc
 au! Bufwritepost .vimrc source %
+
+" Yank
 "set clipboard=unnamed
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 " Use <S-y> for yank only into buffer, not clipboard
 vnoremap <silent> y "+y
 nnoremap <silent> yy 0v$h"+y
@@ -207,6 +209,7 @@ nnoremap <silent> j gj
 "inoremap <silent> <Up> <C-c>gka
 "inoremap <silent> <Down> <C-c>gja
 
+" Leader stuff here.
 nnoremap <Leader>o <Esc>:tabe 
 cnoremap <silent> Q! :qall!<CR>
 noremap <C-w> <Esc>:wq!<CR>
