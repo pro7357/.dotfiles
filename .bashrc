@@ -63,12 +63,10 @@ alias j="$HOME/bash/alias/jgnupg.sh"
 alias jtc="$HOME/bash/bin/jtc-linux-64.latest"
 alias keygen="$HOME/bash/keygen.sh --help && cd $HOME/Bash" #cd $HOME/Bash;./keygen.sh;cd -"
 alias lf=$HOME/bash/alias/lf.sh
-alias linkfinder=$HOME/Git/LinkFinder/linkfinder.py
 alias ls='ls -a --color=auto'
 alias lynx="proxychains lynx -cfg $HOME/.config/lynx/lynx.cfg -cookies -accept_all_cookies"
 #alias m=$HOME/Git/ss/manual.py
 alias m="$HOME/bash/mcomix.sh"
-alias mon=$HOME/bash/core/monitor.sh
 alias mpvyv="mpv --volume=100 --profile=pseudo-gui --keep-open $1"
 alias mpvnv=$HOME/bash/alias/mpv.sh
 alias mv='mv -v'
