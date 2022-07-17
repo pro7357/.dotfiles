@@ -38,7 +38,8 @@ else
     PS1='\[\033[01;31m\][\u@\h \W]\[\033[00m\]\$ '
 fi
 
-alias whoami='echo "you are you"'
+#alias whoami='echo "you are you"'
+alias whoami=/usr/bin/whoami
 alias cd..='cd ..;ls -a;printf "\033[0;31m$(pwd)\n"'
 alias :q='exit'
 alias asource='source $HOME/.bashrc'

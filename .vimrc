@@ -65,6 +65,50 @@ if has('nvim')
     autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 endif
 
+" More fun
+" Insert Checkbox
+fun! s:Checkbox()
+    if getline('.') =~ '\s*-\s\[\s\]\s'
+        call setline('.', substitute(getline('.'), '\[\s\]', '[x]',''))
+    elseif getline('.') =~ '\s*-\s\[x\]\s'
+        call setline('.', substitute(getline('.'), '\[x\]', '[ ]',''))
+    else
+        call setline('.',substitute(getline('.'),'^\s\?','- [ ] ',''))
+        normal! 6l
+    endif
+endfun
+
+nnoremap <Leader>h :call <SID>Checkbox()<CR>
+"inoremap <silent> <F12> <Esc>:call <SID>Checkbox()<CR>a
+
+" Goto got bad rep. So we jump!
+fun! s:Jump(part)
+  let l:path=substitute(getline('.'), '.*\]\(([^)]*\)', '\1', '')
+  if l:path[:0] == '('
+    let l:fullname=substitute(
+          \ substitute(l:path[1:], '\().*\)', '', ''),
+          \ '\(\s"[^"]*"$\)', '', '')
+  elseif l:path[:3] == 'http'
+    let l:fullname=a:part
+    let @+=l:fullname
+    return
+  else
+    "let l:fullname=a:part
+    normal! gF<CR>:tabm<CR>
+    return
+  endif
+  "echomsg l:fullname
+  "return
+  if l:fullname[:3] == 'http'
+    let @+=l:fullname
+  else
+    exe 'tabedit '.l:fullname
+    "let l:fullname=substitute(getline('.'), ':.*', '', '')
+  endif
+endfun
+
+nnoremap <Leader>jj :call <SID>Jump(expand('<cWORD>'))<CR>
+
 " Highlighting
 syntax on
 
