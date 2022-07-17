@@ -1,18 +1,6 @@
 #
 # ~/.bashrc
 #
-h(){
-    echo """Basic usage help
-    mon                 monitor change in specific site
-    mpvnv               mpv no video; music player
-    py                  python
-    torbrowser          Tor Browser
-    torchromium         tor proxy in chromium
-    sha                 openssl dgst -r -sha3-256
-    ZZ                  exit
-    """
-}
-
 export GOPATH=$HOME/go
 #source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash
 export RANGER_LOAD_DEFAULT_RC=false
