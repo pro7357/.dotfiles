@@ -42,7 +42,7 @@ alias whoami='echo "you are you"'
 alias cd..='cd ..;ls -a;printf "\033[0;31m$(pwd)\n"'
 alias :q='exit'
 alias asource='source $HOME/.bashrc'
-alias b="cd $HOME/Bash"
+alias b="cd $HOME/bash"
 alias backup=$HOME/bash/alias/backup.sh
 alias c=$HOME/bash/alias/calculator.sh
 #alias cd=$HOME/bash/alias/cd.sh
@@ -130,16 +130,8 @@ setdatetor(){
     #sudo date -s "Mon, 14 Dec 2022 08:00:58 GMT" && sudo hwclock --systohc
 }
 
-htor(){
-    if [[ $USER == 'fh' ]]; then
-        $HOME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser &
-    else
-        echo 'Err: Access Denied'
-    fi
-}
-
-fh(){
-    if [[ $USER == 'fh' ]]; then
+hh(){
+    if [[ $USER == 'h' ]]; then
         chromium \
         --profile-directory="Default" --new-window \
         --proxy-server="socks5://127.0.0.1:9150" \
@@ -148,7 +140,6 @@ fh(){
         echo 'Err: Access Denied'
     fi
 }
-
 
 keyboard(){
     case $1 in
