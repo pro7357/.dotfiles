@@ -20,7 +20,7 @@ stty -ixon
 # Bash prompt ori PS1='[\u@\h \W]\$ '
 if [[ $USER == 'd' ]]; then
     PS1='\[\033[01;36m\][\u@\h \W]\[\033[00m\]\$ '
-elif [[ $USER == 'fh' ]]; then
+elif [[ $USER == 'h' ]]; then
     PS1='\[\033[01;35m\][\u@\h \W]\[\033[00m\]\$ '
 else
     PS1='\[\033[01;31m\][\u@\h \W]\[\033[00m\]\$ '
@@ -95,8 +95,6 @@ alias direct="$HOME/bash/alias/torssh.sh direct"
 alias tq='touch /tmp/quit'
 alias update=$HOME/bash/alias/update.sh
 alias wifi="iwctl station wlan0 connect L7"
-alias v=vim
-alias nv=nvim
 alias vimprev="VIMENV=prev vim $@"
 alias ya='yt-dlp -f bestaudio[ext=webm]'
 alias yf='yt-dlp -F'
