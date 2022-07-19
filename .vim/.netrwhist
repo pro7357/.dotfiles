@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/shared/Go/src/crawler'
+let g:netrw_dirhist_8='/home/shared/Go/src/github.com/tomnomnom/fff'
+let g:netrw_dirhist_7='/home/shared/Go/src/oldgurl'
+let g:netrw_dirhist_6='/home/d/Wide/assetfinder'
+let g:netrw_dirhist_5='/home/d/Wide/scope'
+let g:netrw_dirhist_4='/home/d/Wide/host'
+let g:netrw_dirhist_3='/home/d/Wide/scope/handle'
+let g:netrw_dirhist_2='/home/d/Wide/scope'
+let g:netrw_dirhist_1='/home/d/Wide/assetfinder'
+let g:netrw_dirhist_0='/home/d/Wide/h1reports/out/hackerone.com/reports/966383.json'
