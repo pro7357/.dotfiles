@@ -61,7 +61,6 @@ alias n=$HOME/bash/alias/nitter.sh
 alias netstat="ss -at && echo 'ss -at'"
 alias oknet="sudo --preserve-env --set-home -g oknet -s"
 alias poweroff=$HOME/bash/alias/poweroff.sh
-alias py=python
 alias recon="proxy=$proxy $HOME/bash/recon.sh $@"
 alias rm='rm -v'
 alias san=$HOME/bash/san.sh
