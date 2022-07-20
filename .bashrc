@@ -118,6 +118,8 @@ hh(){
     if [[ $USER == 'h' ]]; then
         chromium \
         --profile-directory="Default" --new-window \
+        --force-dark-mode \
+        --force-dark-theme \
         --proxy-server="socks5://127.0.0.1:9150" \
         --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" &
     else
