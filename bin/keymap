@@ -1,0 +1,28 @@
+#!/bin/bash
+#https://np.reddit.com/r/i3wm/comments/bl2197/how_to_utilize_caps_lock/
+#https://lottalinuxlinks.com/adding-a-repurposed-caps-lock-as-a-third-mod-key-in-i3/
+#https://faq.i3wm.org/question/6430/remapping-both-caps-lock-and-windows-key/index.html
+
+setxkbmap \
+    -option \
+    -option caps:ctrl_modifier
+
+    #-option caps:escape \
+    #-option ctrl:nocaps \
+#xcape -e 'Caps_Lock=Escape' -t 50
+xcape -e 'Caps_Lock=Escape'
+
+xmodmap \
+    -e 'keycode 64 = Hyper_L Meta_L Alt_L Meta_L' \
+    -e 'keycode 133 = Mode_switch Super_L Mode_switch Super_L' \
+    -e 'keycode 43 = h H Left NoSymbol Left NoSymbol Left' \
+    -e 'keycode 44 = j J Down NoSymbol Down NoSymbol Down' \
+    -e 'keycode 45 = k K Up NoSymbol Up NoSymbol Up' \
+    -e 'keycode 46 = l L Right NoSymbol Right NoSymbol Right'
+
+    #-e 'keycode 66 = Escape' \
+#asus    -e 'keycode 9 = NoSymbol' \
+#    -option caps:none \
+# Not for laptop keyboard
+#    -e 'keycode 0x69 = Caps_Lock'
+

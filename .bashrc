@@ -37,7 +37,7 @@ alias c=$HOME/bash/alias/calculator.sh
 #alias cd=$HOME/bash/alias/cd.sh
 alias check=$HOME/bash/alias/check.sh
 alias crypt="$HOME/bash/alias/crypt.sh $@"
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cp='cp -v'
 alias diff='diff --color'
 alias g="grep -HriaF"

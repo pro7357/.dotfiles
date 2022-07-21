@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+Simple alias for config to be use in any shell including fish.
+E0F
+}
+
+if [[ -z $1 ]]; then
+    _help
+    exit
+fi
+
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@

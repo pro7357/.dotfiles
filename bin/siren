@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+Usage: siren [OPTION]...
+
+Play the Silent Hill siren.
+
+  -q, --quiet    do nothing.
+  -v, --verbose  increase verbosity
+  -h, --help     display this help and exit
+E0F
+}
+
+_main(){
+    mpv --volume=200 --profile=pseudo-gui --keep-open --loop "$HOME/bash/data/Silent Hill siren sound.webm"
+}
+
+_menu(){
+    if [[ $1 == '-h' || $1 == --help ]]; then
+        _help
+    elif [[ "${@:(-1)}" == '-' ]]; then
+        echo "see _stdin in notdefault.sh"
+    elif [[ -z $1 ]]; then
+        _main
+    else
+        echo "$@"
+    fi
+}
+
+[[ $0 == "$BASH_SOURCE" ]] && _menu "$@"
