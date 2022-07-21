@@ -17,8 +17,10 @@ stty -ixon
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Bash prompt ori PS1='[\u@\h \W]\$ '
-if [[ $USER == 'd' ]]; then
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
+	exec fish
+elif [[ $USER == 'd' ]]; then
+    #PS1='[\u@\h \W]\$ '
     PS1='\[\033[01;36m\][\u@\h \W]\[\033[00m\]\$ '
 elif [[ $USER == 'h' ]]; then
     PS1='\[\033[01;35m\][\u@\h \W]\[\033[00m\]\$ '
