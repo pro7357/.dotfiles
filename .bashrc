@@ -17,17 +17,6 @@ stty -ixon
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
-	exec fish
-elif [[ $USER == 'd' ]]; then
-    #PS1='[\u@\h \W]\$ '
-    PS1='\[\033[01;36m\][\u@\h \W]\[\033[00m\]\$ '
-elif [[ $USER == 'h' ]]; then
-    PS1='\[\033[01;35m\][\u@\h \W]\[\033[00m\]\$ '
-else
-    PS1='\[\033[01;31m\][\u@\h \W]\[\033[00m\]\$ '
-fi
-
 alias cd..='cd ..;ls -a;printf "\033[0;31m$(pwd)\n"'
 alias :q='exit'
 alias asource='source $HOME/.bashrc'
@@ -205,4 +194,15 @@ if [[ $PATH != */go/bin* ]]; then
     export PATH="$PATH:$HOME/bin"
     export PATH="$PATH:$HOME/go/bin"
     export PATH="$PATH:$HOME/.local/bin" #this is local user pip install
+fi
+
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
+	exec fish
+elif [[ $USER == 'd' ]]; then
+    #PS1='[\u@\h \W]\$ '
+    PS1='\[\033[01;36m\][\u@\h \W]\[\033[00m\]\$ '
+elif [[ $USER == 'h' ]]; then
+    PS1='\[\033[01;35m\][\u@\h \W]\[\033[00m\]\$ '
+else
+    PS1='\[\033[01;31m\][\u@\h \W]\[\033[00m\]\$ '
 fi
