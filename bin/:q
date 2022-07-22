@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+# This is alias for exit == Ctrl+d
+xte "keydown Control_L" "key d" "keyup Control_L"

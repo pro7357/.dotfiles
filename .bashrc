@@ -17,8 +17,6 @@ stty -ixon
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias cd..='cd ..;ls -a;printf "\033[0;31m$(pwd)\n"'
-alias :q='exit'
 alias asource='source $HOME/.bashrc'
 alias b="cd $HOME/bash"
 alias backup=$HOME/bash/alias/backup.sh
@@ -60,18 +58,6 @@ alias skill='pkill mcomix > /dev/null && echo "Done!" || echo "Problemo!"'
 alias stripcolor='sed -r "s/\\[38;5;[0-9]{1,3}m//g"'
 alias sublist3r=$HOME/Git/Sublist3r/sublist3r.py
 alias tag=$HOME/bash/alias/tag.sh
-#alias torbrowser="tor-browser &"
-alias torbrowser="sudo -g oknet tor-browser &"
-alias oldtorbrowser="$HOME/.local/share/torbrowser_old/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser &"
-alias proxoid='chromium \
---profile-directory="Profile 1" --new-window &'
-#--proxy-server="192.168.43.1:9880" &'
-#--host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1,192.168.43.1" &'
-alias gochromium='chromium --proxy-server="socks5://127.0.0.1:9150" \
-    --remote-debugging-port=0 \
-    --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" &
-    sleep 3
-    echo "global ws://something"'
 alias torssh=$HOME/bash/alias/torssh.sh
 alias direct="$HOME/bash/alias/torssh.sh direct"
 alias tq='touch /tmp/quit'
@@ -97,19 +83,6 @@ setdatetor(){
     sudo su -g oknet -c "curl -x socks5h://127.0.0.1:9150 --insecure -I --resolve duckduckgo.com:443:20.43.161.105 https://duckduckgo.com/ \
         | rg '^date:\s?' -r '' | xargs -I {} date -s {}; hwclock --systohc"
     #sudo date -s "Mon, 14 Dec 2022 08:00:58 GMT" && sudo hwclock --systohc
-}
-
-hh(){
-    if [[ $USER == 'h' ]]; then
-        chromium \
-        --profile-directory="Default" --new-window \
-        --force-dark-mode \
-        --force-dark-theme \
-        --proxy-server="socks5://127.0.0.1:9150" \
-        --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" &
-    else
-        echo 'Err: Access Denied'
-    fi
 }
 
 keyboard(){
