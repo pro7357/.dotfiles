@@ -63,12 +63,6 @@ alias tag=$HOME/bash/alias/tag.sh
 #alias torbrowser="tor-browser &"
 alias torbrowser="sudo -g oknet tor-browser &"
 alias oldtorbrowser="$HOME/.local/share/torbrowser_old/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser &"
-alias torchromium='chromium \
---profile-directory="Default" --new-window \
---force-dark-mode \
---force-dark-theme \
---proxy-server="socks5://127.0.0.1:9150" \
---host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" &'
 alias proxoid='chromium \
 --profile-directory="Profile 1" --new-window &'
 #--proxy-server="192.168.43.1:9880" &'
