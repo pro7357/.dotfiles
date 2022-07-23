@@ -244,9 +244,8 @@ mode "$mode_leader" {
 
 bindsym --release $mod2+Shift+h exec --no-startup-id xte 'key Home'
 bindsym --release $mod2+h exec --no-startup-id xte 'key Left'
-#todo update ~/bin/keymap
-#bindsym --release $mod2+j exec --no-startup-id xte 'key Down'
-#bindsym --release $mod2+k exec --no-startup-id xte 'key Up'
+bindsym --release $mod2+j exec --no-startup-id xte 'key Down'
+bindsym --release $mod2+k exec --no-startup-id xte 'key Up'
 bindsym --release $mod2+l exec --no-startup-id xte 'key Right'
 bindsym --release $mod2+semicolon exec --no-startup-id xte 'key End'
 #Mod3 == Esc/caps open new tab
