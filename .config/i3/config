@@ -1,16 +1,41 @@
 # i3 config file (v4)
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# [complete reference!](https://i3wm.org/docs/userguide.html)
 #
 # This config file uses keycodes (bindsym) and was written for the QWERTY
 # layout.
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
+
+# [4.4. Keyboard binding](https://i3wm.org/docs/userguide.html#keybindings)
+# bind either on keycodes or on keysyms. can also mix
+# keysym (key symbol) is like "a" or "b", but also "underscore" instead of "_"
+# keycodes does not change their meaning on different keyboard.
+# xev               # interactive keysym - keycodes. alt+e to split; then drag
+# xmodmap -pke      # maps of keycodes - keysym 
+# xmodmap -pke | grep space
+# xmodmap           # maps of common keysym - keycodes
+# Fullscreen
+#bindsym $mod+f fullscreen toggle
+# Restart
+#bindsym $mod+Shift+r restart
+# Notebook-specific hotkeys
+#bindcode 214 exec --no-startup-id /home/michael/toggle_beamer.sh
+# Simulate ctrl+v upon pressing $mod+x
+#--release flags for keyboard/pointer that is still grabbed/locked.
+#bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+# Take a screenshot upon pressing $mod+x (select an area)
+#bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
+# Alt_L == Hyper_L
+# Win   == Mode_switch 133 ff7e
+# Home 110 ff50
+# End 115 ff57
+
 set $mod $mod
 set $mod Mod1
 set $mod1 control
+set $mod2 Mode_switch
 
 # Original was 96
 # Also set in .Xresources and loaded in .xinitrc
@@ -59,11 +84,7 @@ bindsym $mod+Shift+$right focus right
 #bindsym --release $mod+l exec xte 'keydown Control_L' 'key Page_Down' 'keyup Control_L'
 bindsym --release $mod+h exec xte 'keyup Hyper_L' 'keydown Control_L' 'key Page_Up' 'keyup Control_L' 'keydown Hyper_L'
 bindsym --release $mod+l exec xte 'keyup Hyper_L' 'keydown Control_L' 'key Page_Down' 'keyup Control_L' 'keydown Hyper_L'
-#not working, see keymap win+hjkl
-#bindsym $mod+j exec xte 'key Down'
-#bindsym $mod+k exec --no-startup-id xte 'key Up'
-#bindsym $mod+h exec --no-startup-id xte 'key Left'
-#bindsym $mod+l exec --no-startup-id xte 'key Right'
+
 # Normies
 #bindsym $mod+Tab focus right
 #bindsym $mod+Shift+Tab focus left
@@ -109,7 +130,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -201,23 +222,34 @@ bindsym $mod+y border pixel 3
 # use neither window title nor border
 bindsym $mod+u border none
 bindsym $mod+i border normal
+
+# Press $mod+o followed by either f, t, Escape or Return
+# to launch firefox, thunderbird or return to the default mode.
+set $mode_leader [hjkl] or Run: [s]iren [t]or-browser
+bindsym $mod+space mode "$mode_leader"
+mode "$mode_leader" {
+    #not perfect..
+    bindsym --release h exec --no-startup-id xte 'key Left'
+    bindsym --release j exec --no-startup-id xte 'key Down'
+    bindsym --release k exec --no-startup-id xte 'key Up'
+    bindsym --release l exec --no-startup-id xte 'key Right'
+
+    bindsym s exec siren
+    bindsym t exec tor-browser
+    
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 #######################################################################
-#tab mod3
 
-#mode "hjkl" {
-#    bindsym h exec --no-startup-id xte 'keydown Left' 'keyup Left'
-#    bindsym j exec --no-startup-id xte 'keydown Down' 'keyup Down'
-#    bindsym k exec --no-startup-id xte 'keydown Up' 'keyup Up'
-#    bindsym l exec --no-startup-id xte 'keydown Right' 'keyup Right'
-#
-#
-#    #bindsym F21 mode "default"
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
-#bindsym $mod+n mode "hjkl"
-
-#open new tab
+bindsym --release $mod2+Shift+h exec --no-startup-id xte 'key Home'
+bindsym --release $mod2+h exec --no-startup-id xte 'key Left'
+#todo update ~/bin/keymap
+#bindsym --release $mod2+j exec --no-startup-id xte 'key Down'
+#bindsym --release $mod2+k exec --no-startup-id xte 'key Up'
+bindsym --release $mod2+l exec --no-startup-id xte 'key Right'
+bindsym --release $mod2+semicolon exec --no-startup-id xte 'key End'
+#Mod3 == Esc/caps open new tab
 #bindsym --release Mod3+t exec xte "keydown Control_L" "key t" "keyup Control_L"
 #close tab
 #bindsym --release Mod3+w exec xte "keydown Control_L" "key w" "keyup Control_L"
