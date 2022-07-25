@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+Usage: mission [OPTION]... [COMMAND]
+trans[mission] is for torrent.
+
+  STATUS
+  START
+  STOP
+  -q, --quiet    do not print anything to stdout
+  -v, --verbose  increase verbosity
+  -h, --help     display this help and exit
+E0F
+}
+
+_main(){
+    transmission-remote-gtk
+}
+
+_menu(){
+    #see notdefault.sh for more complex options.
+    if [[ $1 == '-h' || $1 == --help ]]; then
+        _help
+    elif [[ $1 == start ]]; then
+        sudo systemctl start transmission.service
+    elif [[ $1 == stop ]]; then
+        sudo systemctl stop transmission.service
+    elif [[ $1 == status ]]; then
+        systemctl status transmission.service
+    elif [[ -z $1 ]]; then
+        _main
+    else
+        echo "Unknown command:$@"
+        _help
+    fi
+}
+
+[[ $0 == "$BASH_SOURCE" ]] && _menu "$@"
