@@ -48,7 +48,6 @@ alias mpvnv=$HOME/bash/alias/mpv.sh
 alias mv='mv -v'
 alias n=$HOME/bash/alias/nitter.sh
 alias netstat="ss -at && echo 'ss -at'"
-alias oknet="sudo --preserve-env --set-home -g oknet -s"
 alias poweroff=$HOME/bash/alias/poweroff.sh
 alias recon="proxy=$proxy $HOME/bash/recon.sh $@"
 alias rm='rm -v'
@@ -72,17 +71,6 @@ alias ZZ=exit
 
 function turl(){
     curl -x socks5h://127.0.0.1:9150 --user-agent "$USER_AGENT" $@
-}
-
-setdate(){
-    sudo su -g oknet -c "curl --insecure -I --resolve duckduckgo.com:443:20.43.161.105 https://duckduckgo.com/ \
-        | rg '^date:\s?' -r '' | xargs -I {} date -s {}; hwclock --systohc"
-    #sudo date -s "Mon, 14 Dec 2022 08:00:58 GMT" && sudo hwclock --systohc
-}
-setdatetor(){
-    sudo su -g oknet -c "curl -x socks5h://127.0.0.1:9150 --insecure -I --resolve duckduckgo.com:443:20.43.161.105 https://duckduckgo.com/ \
-        | rg '^date:\s?' -r '' | xargs -I {} date -s {}; hwclock --systohc"
-    #sudo date -s "Mon, 14 Dec 2022 08:00:58 GMT" && sudo hwclock --systohc
 }
 
 keyboard(){
