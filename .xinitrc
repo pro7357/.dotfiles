@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
-#$HOME/bash/alias/hotplug_monitor.sh
-#$HOME/bash/alias/monitor_temp.sh &
+clipster -d &
 keymap
 
 ##To log the output from i3, add this line instead:

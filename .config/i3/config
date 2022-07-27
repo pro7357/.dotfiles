@@ -257,8 +257,8 @@ bindsym --release $mod2+semicolon exec --no-startup-id xte 'key End'
 #bindsym Mode_switch+e exec --no-startup-id pcmanfm
 #bindsym --release Mod4+d exec --no-startup-id gnome-disks
 
-# Start clipster daemon
-exec --no-startup-id clipster -d
+# Startup in .xinitrc
+# exec --no-startup-id clipster -d
 
 # shortcut to selection widget (p=primary,c=clipboard)
 bindsym $mod1+Shift+x exec clipster -sc
