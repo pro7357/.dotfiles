@@ -1,0 +1,5 @@
+[user]
+    email = "pro7357@wearehackerone.com"
+[core]
+    sshCommand = "ssh -i $HOME/.ssh/gitlab_pro7357"
+

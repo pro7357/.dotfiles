@@ -1,3 +1,9 @@
 [user]
 	name = pro7357
 	email = pro7357@protonmail.com
+
+[includeIf "gitdir:~/gitlab/.com/pro7357/"]
+    path = ~/.config/git/gitlab_pro7357
+
+[includeIf "gitdir:~/gitlab/.com/dev/"]
+    path = ~/.config/git/gitlab_dev
