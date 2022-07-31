@@ -7,3 +7,6 @@
 
 [includeIf "gitdir:~/gitlab/.com/dev/"]
     path = ~/.config/git/gitlab_dev
+
+[init]
+	defaultBranch = main

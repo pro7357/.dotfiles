@@ -211,7 +211,7 @@ au BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd Filetype markdown setlocal nowrap
 autocmd Filetype markdown setlocal linebreak
 autocmd Filetype markdown setlocal nolist
-autocmd Filetype markdown setlocal columns=80
+"autocmd Filetype markdown setlocal columns=80
 let g:vim_markdown_conceal = 0
 
 " Trans background
