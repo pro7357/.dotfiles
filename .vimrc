@@ -173,15 +173,14 @@ set nobackup
 set noswapfile
 set noundofile 
 
-if !isdirectory('$HOME/.vim/tmp_vim')
-    call mkdir('$HOME/.vim/tmp_vim', 'p')
-    call mkdir('$HOME/.vim/tmp_neo', 'p')
+if !isdirectory('~/.vim/tmp_vim')
+    silent !mkdir -p $HOME/.vim/tmp_vim
+    silent !mkdir -p $HOME/.vim/tmp_neo
 endif
 
-let $vimtmp='$HOME/.vim/tmp_vim'
-
+let $vimtmp=$HOME . '/.vim/tmp_vim'
 if has('nvim')
-    let $vimtmp='$HOME/.vim/tmp_neo'
+    let $vimtmp=$HOME . '/.vim/tmp_neo'
 endif
 
 " PEP8 indentation and overwrite default
