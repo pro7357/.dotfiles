@@ -110,7 +110,7 @@ bindsym --release $mod+l exec xte 'keyup Hyper_L' 'keydown Control_L' 'key Page_
 workspace_layout tabbed
 default_orientation vertical
 #for_window [title="Home.md (/media/c/Adisc/H) - NVIM"] floating enable
-for_window [title="Home.md"] floating enable
+#for_window [title="Home.md"] floating enable
 
 # split in horizontal orientation
 #bindsym $mod+- split horizontal
