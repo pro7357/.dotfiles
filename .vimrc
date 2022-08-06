@@ -184,7 +184,7 @@ if has('nvim')
 endif
 
 " PEP8 indentation and overwrite default
-au BufNewFile,BufRead *.py,*.sh,*.go,*.md
+au BufNewFile,BufRead *.py,*.sh,*.go
     \ set directory=$vimtmp |
     \ set backupdir=$vimtmp |
     \ set undodir=$vimtmp |
