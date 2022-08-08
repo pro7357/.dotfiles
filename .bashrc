@@ -18,10 +18,6 @@ stty -ixon
 [[ $- != *i* ]] && return
 
 alias asource='source $HOME/.bashrc'
-alias b="cd $HOME/bash"
-alias backup=$HOME/bash/alias/backup.sh
-alias c=$HOME/bash/alias/calculator.sh
-#alias cd=$HOME/bash/alias/cd.sh
 alias check=$HOME/bash/alias/check.sh
 alias encry="$HOME/bash/alias/encry.sh $@"
 #alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
