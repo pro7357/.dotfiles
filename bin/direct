@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+if [[ $USER != 'd' ]]; then
+    echo "Only user d allowed"
+    exit 1
+fi
+
+chromium \
+    --profile-directory="Direct" \
+    --new-window \
+    --force-dark-mode \
+    --force-dark-theme
