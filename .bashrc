@@ -54,10 +54,9 @@ alias stripcolor='sed -r "s/\\[38;5;[0-9]{1,3}m//g"'
 alias sublist3r=$HOME/Git/Sublist3r/sublist3r.py
 alias tag=$HOME/bash/alias/tag.sh
 alias torssh=$HOME/bash/alias/torssh.sh
-alias direct="$HOME/bash/alias/torssh.sh direct"
+#alias direct="$HOME/bash/alias/torssh.sh direct"
 alias tq='touch /tmp/quit'
 alias update=$HOME/bash/alias/update.sh
-alias wifi="iwctl station wlan0 connect L7"
 alias vimprev="VIMENV=prev vim $@"
 alias ya='yt-dlp -f bestaudio[ext=webm]'
 alias yf='yt-dlp -F'
