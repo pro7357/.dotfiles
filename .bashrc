@@ -19,8 +19,6 @@ stty -ixon
 
 alias asource='source $HOME/.bashrc'
 alias check=$HOME/bash/alias/check.sh
-alias encry="$HOME/bash/alias/encry.sh $@"
-#alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cp='cp -v'
 alias diff='diff --color'
 alias g="grep -HriaF"
