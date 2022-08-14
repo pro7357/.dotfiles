@@ -29,13 +29,10 @@ source /tmp/GLOBAL_ENV 2> /dev/null
 alias hn="$HOME/bash/alias/hackernews.sh"
 alias hold=$HOME/bash/hold.sh
 alias ifconfig="echo 'Command deprecated. Use ip address, ip link, ip neigbor or ip route'"
-alias j="$HOME/bash/alias/jgnupg.sh"
-alias jtc="$HOME/bash/bin/jtc-linux-64.latest"
 alias keygen="$HOME/bash/keygen.sh --help && cd $HOME/Bash" #cd $HOME/Bash;./keygen.sh;cd -"
 alias lf=$HOME/bash/alias/lf.sh
 alias ls='ls -a --color=auto'
 alias lynx="proxychains lynx -cfg $HOME/.config/lynx/lynx.cfg -cookies -accept_all_cookies"
-#alias m=$HOME/Git/ss/manual.py
 alias m="$HOME/bash/mcomix.sh"
 alias mv='mv -v'
 alias n=$HOME/bash/alias/nitter.sh
@@ -58,7 +55,6 @@ alias ya='yt-dlp -f bestaudio[ext=webm]'
 alias yf='yt-dlp -F'
 alias ydl=$HOME/bash/alias/ydl.sh
 #alias ydl='youtube-dl -f 247+251'
-alias ZZ=exit
 
 if [[ $PATH != */go/bin* ]]; then
     export PATH="$PATH:$HOME/bin"
