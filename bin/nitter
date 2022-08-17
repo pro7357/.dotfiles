@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+Replace url in clipboard from twitter.com to nitter.net
+E0F
+}
+
+_main(){
+    # sometime use this one: clip=$(clipster -o)
+    clip=$(clipster -c -o)
+    if [[ ${clip::19} == 'https://twitter.com' ]]; then
+        echo "https://nitter.net${clip:19}" | clipster -c
+        echo "https://nitter.net${clip:19}"
+    else
+        echo "invalid input: $clip"
+    fi
+}
+
+_menu(){
+    if [[ $1 == '-h' || $1 == --help ]]; then
+        _help
+    elif [[ -z $1 ]]; then
+        _main
+    else
+        echo "invalid stdin: $@"
+    fi
+}
+
+[[ $0 == "$BASH_SOURCE" ]] && _menu "$@"

@@ -35,7 +35,6 @@ alias ls='ls -a --color=auto'
 alias lynx="proxychains lynx -cfg $HOME/.config/lynx/lynx.cfg -cookies -accept_all_cookies"
 alias m="$HOME/bash/mcomix.sh"
 alias mv='mv -v'
-alias n=$HOME/bash/alias/nitter.sh
 alias netstat="ss -at && echo 'ss -at'"
 alias poweroff=$HOME/bash/alias/poweroff.sh
 alias recon="proxy=$proxy $HOME/bash/recon.sh $@"
