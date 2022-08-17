@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+if [[ $USER != 'd' ]]; then
+    echo "Only user d allowed"
+    exit 1
+fi
+
+base="$HOME/bin"
+source "$base/.env"
+
+_env_variable(){
+    # Mostly for readability
+    git_taoken=$git_taoken
+
+    if [[ -z $git_taoken ]]; then
+        status="Error: fail sourcing .env"
+        if $verbose; then echo "$status"; fi
+        exit 1
+    fi
+}
+_env_variable
+
+cd /home/private
+git add . --all         #track all files (deleted files included)
+git commit -m "Auto generated changes."
+git push https://$git_taoken@github.com/pro7357/private.git main
