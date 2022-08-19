@@ -2,7 +2,8 @@
 
 setxkbmap \
     -option \
-    -option caps:ctrl_modifier
+    -option caps:ctrl_modifier \
+    -option shift:both_capslock_cancel
 
 xcape -e 'Caps_Lock=Escape'
 
