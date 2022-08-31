@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+alias for proxychains socks5 android tor
+E0F
+}
+
+if [[ -z $1 ]]; then
+    _help
+    exit
+fi
+
+proxychains -q -f /etc/proxychains_socks5_android_tor.conf "$@"
