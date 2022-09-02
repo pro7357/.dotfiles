@@ -56,9 +56,9 @@ alias ydl=$HOME/bash/alias/ydl.sh
 #alias ydl='youtube-dl -f 247+251'
 
 if [[ $PATH != */go/bin* ]]; then
-    export PATH="$PATH:$HOME/bin"
-    export PATH="$PATH:$HOME/go/bin"
     export PATH="$PATH:$HOME/.local/bin" #this is local user pip install
+    export PATH="$PATH:$HOME/go/bin"
+    export PATH="$PATH:$HOME/bin"
 fi
 
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
