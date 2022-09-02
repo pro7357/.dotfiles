@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+/usr/bin/lss -a --group-directories-first --color "$@"
