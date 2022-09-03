@@ -1,3 +1,6 @@
 #!/usr/bin/bash
 
+# origin_ls=$(which ls)
+# sudo mv $origin_ls ${origin_ls}_
+
 /usr/bin/ls_ -a --group-directories-first --color "$@"
