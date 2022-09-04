@@ -12,4 +12,4 @@ if [[ -z $1 ]]; then
     exit
 fi
 
-proxychains -q -f /etc/proxychains.conf "$@"
+proxychains -q -f /etc/proxychains_socks5direct.conf "$@"
