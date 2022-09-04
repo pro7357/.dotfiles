@@ -4,9 +4,7 @@ Usage: torssh [OPTION]...
 No option == default. tor local use android's tor.
           127.0.0.1:9150 tor
 tora      127.0.0.1:9050 tor on android
-direct    127.0.0.1:8880 https direct on android
-  -q, --quiet    do not print anything to stdout
-  -v, --verbose  increase verbosity
+direct    127.0.0.1:8880 socks5 direct on android
   -h, --help     display this help and exit
 E0F
 }
@@ -26,7 +24,7 @@ _main(){
 }
 
 _tora(){
-    echo "Creating socks5 proxy on 127.0.0.1:9050"
+    echo "Creating socks5 proxy to tor on 127.0.0.1:9050"
 
     IFS=$'\n'
     for line in $(ip neighbour); do
