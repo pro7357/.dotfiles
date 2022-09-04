@@ -1,0 +1,68 @@
+#!/usr/bin/bash
+_help(){ cat <<E0F
+Usage: torssh [OPTION]...
+No option == default. tor local use android's tor.
+          127.0.0.1:9150 tor
+tora      127.0.0.1:9050 tor on android
+direct    127.0.0.1:8880 https direct on android
+  -q, --quiet    do not print anything to stdout
+  -v, --verbose  increase verbosity
+  -h, --help     display this help and exit
+E0F
+}
+
+_main(){
+    # local tor will use tor from android, save hotspot data
+    echo "Creating socks5 proxy on 127.0.0.1:9150"
+
+    IFS=$'\n'
+    for line in $(ip neighbour); do
+        state=$(echo "$line" | awk '{print $NF}')
+        if [[ $state == 'REACHABLE' ]]; then
+            neigh=$(echo "$line" | awk '{print $1}')
+            ssh -L 9150:127.0.0.1:9050 $neigh -p 8022
+        fi
+    done
+}
+
+_tora(){
+    echo "Creating socks5 proxy on 127.0.0.1:9050"
+
+    IFS=$'\n'
+    for line in $(ip neighbour); do
+        state=$(echo "$line" | awk '{print $NF}')
+        if [[ $state == 'REACHABLE' ]]; then
+            neigh=$(echo "$line" | awk '{print $1}')
+            ssh -L 9050:127.0.0.1:9050 $neigh -p 8022
+        fi
+    done
+}
+
+_direct(){
+    echo "Creating direct socks5 proxy on 127.0.0.1:8880"
+
+    IFS=$'\n'
+    for line in $(ip neighbour); do
+        state=$(echo "$line" | awk '{print $NF}')
+        if [[ $state == 'REACHABLE' ]]; then
+            neigh=$(echo "$line" | awk '{print $1}')
+            ssh -D 8880 $neigh -p 8022
+        fi
+    done
+}
+
+_menu(){
+    if [[ $1 == '-h' || $1 == --help ]]; then
+        _help
+    elif [[ -z $1 ]]; then
+        _main
+    elif [[ $1 == 'tora' ]]; then
+        _tora
+    elif [[ $1 == 'direct' ]]; then
+        _direct
+    else
+        echo "$@"
+    fi
+}
+
+[[ $0 == "$BASH_SOURCE" ]] && _menu "$@"
