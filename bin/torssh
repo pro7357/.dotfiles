@@ -8,6 +8,9 @@ direct    127.0.0.1:8880 socks5 direct on android
   -h, --help     display this help and exit
 E0F
 }
+#- [ ] if you are bored
+#one function to select ip
+#another function use case to select ssh argument. 
 
 _main(){
     # local tor will use tor from android, save hotspot data
