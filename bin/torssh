@@ -16,9 +16,11 @@ _main(){
     IFS=$'\n'
     for line in $(ip neighbour); do
         state=$(echo "$line" | awk '{print $NF}')
-        if [[ $state == 'REACHABLE' ]]; then
-            neigh=$(echo "$line" | awk '{print $1}')
-            ssh -L 9150:127.0.0.1:9050 $neigh -p 8022
+        if [[ $state == 'REACHABLE' || $state == 'STALE' ]]; then
+            ip_neighbour=${line%% *}
+            if [[ ${ip_neighbour::7} == '192.168' ]]; then
+                ssh -L 9150:127.0.0.1:9050 $ip_neighbour -p 8022
+            fi
         fi
     done
 }
@@ -29,9 +31,11 @@ _tora(){
     IFS=$'\n'
     for line in $(ip neighbour); do
         state=$(echo "$line" | awk '{print $NF}')
-        if [[ $state == 'REACHABLE' ]]; then
-            neigh=$(echo "$line" | awk '{print $1}')
-            ssh -L 9050:127.0.0.1:9050 $neigh -p 8022
+        if [[ $state == 'REACHABLE' || $state == 'STALE' ]]; then
+            ip_neighbour=${line%% *}
+            if [[ ${ip_neighbour::7} == '192.168' ]]; then
+                ssh -L 9050:127.0.0.1:9050 $ip_neighbour -p 8022
+            fi
         fi
     done
 }
@@ -42,9 +46,11 @@ _direct(){
     IFS=$'\n'
     for line in $(ip neighbour); do
         state=$(echo "$line" | awk '{print $NF}')
-        if [[ $state == 'REACHABLE' ]]; then
-            neigh=$(echo "$line" | awk '{print $1}')
-            ssh -D 8880 $neigh -p 8022
+        if [[ $state == 'REACHABLE' || $state == 'STALE' ]]; then
+            ip_neighbour=${line%% *}
+            if [[ ${ip_neighbour::7} == '192.168' ]]; then
+                ssh -D 8880 $ip_neighbour -p 8022
+            fi
         fi
     done
 }
