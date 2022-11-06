@@ -3,9 +3,8 @@
 setxkbmap \
     -option \
     -option caps:ctrl_modifier \
+    -option caps:escape \
     -option shift:both_capslock_cancel
-
-xcape -e 'Caps_Lock=Escape'
 
 xmodmap \
     -e 'keycode 64 = Hyper_L Meta_L Alt_L Meta_L' \
