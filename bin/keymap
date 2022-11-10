@@ -5,7 +5,8 @@ setxkbmap \
     -option caps:ctrl_modifier \
     -option shift:both_capslock_cancel
 
+xcape -e 'Caps_Lock=Escape'
+
 xmodmap \
-    -e 'keycode 66 = Escape' \
     -e 'keycode 64 = Hyper_L Meta_L Alt_L Meta_L' \
     -e 'keycode 133 = Mode_switch Super_L Mode_switch Super_L'
